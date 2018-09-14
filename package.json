@@ -9,7 +9,7 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "changelog": "github-changes -o OrangeBorning -r jsBridge  --use-commit-body",
+    "changelog": "github-changes -o OrangeBorning -r nodejs.cn  --use-commit-body",
     "deploy-gh": "bash scripts/deploy.sh"
   },
   "devDependencies": {
