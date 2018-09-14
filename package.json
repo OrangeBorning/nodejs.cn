@@ -1,6 +1,6 @@
 {
   "name": "nodejs.cn",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "nodejs api",
   "main": "index.js",
   "repository": "git@github.com:OrangeBorning/nodejs.cn.git",
