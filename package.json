@@ -1,0 +1,19 @@
+{
+  "name": "nodejs.cn",
+  "version": "1.0.0",
+  "description": "nodejs api",
+  "main": "index.js",
+  "repository": "git@github.com:OrangeBorning/nodejs.cn.git",
+  "author": "OrangeBorning <orangeborningzxp@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "changelog": "github-changes -o OrangeBorning -r jsBridge  --use-commit-body",
+    "deploy-gh": "bash scripts/deploy.sh"
+  },
+  "devDependencies": {
+    "vuepress": "^0.14.3",
+    "vuepress-theme-vue": "^1.1.0"
+  }
+}
