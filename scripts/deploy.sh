@@ -3,4 +3,4 @@ cd  docs/.vuepress/dist
 git init
 git add -A
 git commit -m 'deploy'
-git push -f git@github.com:OrangeBorning/jsBridge.git master:gh-pages
+git push -f git@github.com:OrangeBorning/nodejs.cn.git master:gh-pages
