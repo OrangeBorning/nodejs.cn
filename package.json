@@ -15,5 +15,8 @@
   "devDependencies": {
     "vuepress": "^0.14.3",
     "vuepress-theme-vue": "^1.1.0"
+  },
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.1"
   }
 }

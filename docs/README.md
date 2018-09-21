@@ -2,7 +2,7 @@
 home: true
 heroImage: /logo.png
 actionText: 开始学习 →
-actionLink: /API/
+actionLink: /guide/
 footer: MIT Licensed | Copyright © 2018-present Julian Zhu
 ---
 <div style="text-align: center">

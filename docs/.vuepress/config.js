@@ -1,5 +1,5 @@
 module.exports = {
-  // base: '/nodejs.cn/',
+  base: '/nodejs.cn/',
   locales: {
     '/': {
       lang: 'zh-CN',
@@ -58,8 +58,7 @@ module.exports = {
         selectText: '选择语言',
         editLinkText: '编辑此页',
         lastUpdated: '上次更新',
-        nav: [
-          {
+        nav: [{
             text: '指南',
             link: '/guide/'
           },
@@ -82,7 +81,8 @@ module.exports = {
             // 'Buffer/',
             // 'child_process/',
             // 'fs/',
-            'module/'
+            'module/',
+            'dns/'
           ]
         }
       }

@@ -8,7 +8,7 @@ const module = require('module');
 
 这里运行 index.js
 
-```shell
+```bash
 node index.js
 index.js:1
 (function (exports, require, module, __filename, __dirname) { const module = require('module');
@@ -30,7 +30,7 @@ SyntaxError: Identifier 'module' has already been declared
 通过上面的异常发现
 
 ```js
-(function (exports, require, module, __filename, __dirname) {};
+(function (exports, require, module, __filename, __dirname) {});
 ```
 
 这里是一个知识点 [模块包装器](#wrapper 模块包装器)，你可以现在就去看看，或者继续阅读（在执行模块代码之前，Node.js 会使用一个如上的函数包装器将其包装）。
@@ -38,9 +38,9 @@ SyntaxError: Identifier 'module' has already been declared
 让我们修正 index.js, 然后再次运行
 
 ```js
-const moduleObj = require('module')
+const moduleObj = require('module');
 ```
-```shell
+```bash
 node index.js
 { [Function: Module]
   builtinModules: 
@@ -231,7 +231,7 @@ odule.require 方法提供了一种类似 require() 从原始模块被调用的�
 require.cache 被引入的模块将被缓存在这个对象中。从此对象中删除键值对将会导致下一次 require 重新加载被删除的模块。注意不能删除 native addons（原生插件），因为它们的重载将会导致错误。
 require.main Module对象，表示Node.js进程启动时加载的条目脚本。
 
-  ```shell
+  ```bash
   Module {
     id: '.',
     exports: {},
@@ -282,3 +282,49 @@ module.paths 模块的搜索路径。
 ## __filename
 
 当前模块的文件名称---解析后的绝对路径。
+
+## require import 傻傻分不清楚 todo
+
+node 中可以开心的使用 import 方式吗
+```js
+import moudleObj from 'module';
+```
+```bash
+node -v 
+v8.11.3
+node index.js
+/Users/zhuxiaopeng/Desktop/github/nodejs.cn/index.js:2
+import module from 'module';
+^^^^^^
+
+SyntaxError: Unexpected token import
+    at createScript (vm.js:80:10)
+    at Object.runInThisContext (vm.js:139:10)
+    at Module._compile (module.js:616:28)
+    at Object.Module._extensions..js (module.js:663:10)
+    at Module.load (module.js:565:32)
+    at tryModuleLoad (module.js:505:12)
+    at Function.Module._load (module.js:497:3)
+    at Function.Module.runMain (module.js:693:10)
+    at startup (bootstrap_node.js:191:16)
+    at bootstrap_node.js:612:3
+
+node -v 
+v10.11.0
+node index.js
+/Users/zhuxiaopeng/Desktop/github/nodejs.cn/index.js:2
+import module from 'module';
+^^^^^^
+
+SyntaxError: Unexpected token import
+    at createScript (vm.js:80:10)
+    at Object.runInThisContext (vm.js:139:10)
+    at Module._compile (module.js:616:28)
+    at Object.Module._extensions..js (module.js:663:10)
+    at Module.load (module.js:565:32)
+    at tryModuleLoad (module.js:505:12)
+    at Function.Module._load (module.js:497:3)
+    at Function.Module.runMain (module.js:693:10)
+    at startup (bootstrap_node.js:191:16)
+    at bootstrap_node.js:612:3
+```
