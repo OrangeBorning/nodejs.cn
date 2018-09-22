@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>module 模块 | nodejs.cn</title>
+    <meta name="description" content="nodejs api 学习记录">
+    <link rel="icon" href="/nodejs.cn/logo.png">
+  <link rel="manifest" href="/nodejs.cn/manifest.json">
+  <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/nodejs.cn/icons/apple-touch-icon-152x152.png">
+  <link rel="mask-icon" href="/nodejs.cn/icons/safari-pinned-tab.svg" color="#3eaf7c">
+  <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/nodejs.cn/assets/css/0.styles.7aacd3cd.css" as="style"><link rel="preload" href="/nodejs.cn/assets/js/app.5c390938.js" as="script"><link rel="preload" href="/nodejs.cn/assets/js/11.5d7bf7d3.js" as="script"><link rel="prefetch" href="/nodejs.cn/assets/js/6.9ba52d28.js"><link rel="prefetch" href="/nodejs.cn/assets/js/2.2eacc74f.js"><link rel="prefetch" href="/nodejs.cn/assets/js/3.e62c53c4.js"><link rel="prefetch" href="/nodejs.cn/assets/js/4.b044af06.js"><link rel="prefetch" href="/nodejs.cn/assets/js/5.3dc49e27.js"><link rel="prefetch" href="/nodejs.cn/assets/js/7.2c534a64.js"><link rel="prefetch" href="/nodejs.cn/assets/js/8.e8398e58.js"><link rel="prefetch" href="/nodejs.cn/assets/js/9.877b85a1.js"><link rel="prefetch" href="/nodejs.cn/assets/js/10.1dff0aef.js"><link rel="prefetch" href="/nodejs.cn/assets/js/12.7a78fff3.js"><link rel="prefetch" href="/nodejs.cn/assets/js/13.78de7c79.js">
+    <link rel="stylesheet" href="/nodejs.cn/assets/css/0.styles.7aacd3cd.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/nodejs.cn/" class="home-link router-link-active"><!----> <span class="site-name">nodejs.cn</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/nodejs.cn/guide/" class="nav-link">指南</a></div><div class="nav-item"><a href="/nodejs.cn/API/" class="nav-link router-link-active">API</a></div> <a href="https://github.com/OrangeBorning/nodejs.cn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/nodejs.cn/guide/" class="nav-link">指南</a></div><div class="nav-item"><a href="/nodejs.cn/API/" class="nav-link router-link-active">API</a></div> <a href="https://github.com/OrangeBorning/nodejs.cn" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav> <div class="carbon-ads"></div> <ul class="sidebar-links"><li><a href="/nodejs.cn/API/module/" class="active sidebar-link">module 模块</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/nodejs.cn/API/module/#wrapper-模块包装器" class="sidebar-link">wrapper 模块包装器</a></li><li class="sidebar-sub-header"><a href="/nodejs.cn/API/module/#exports" class="sidebar-link">exports</a></li><li class="sidebar-sub-header"><a href="/nodejs.cn/API/module/#require" class="sidebar-link">require</a></li><li class="sidebar-sub-header"><a href="/nodejs.cn/API/module/#module" class="sidebar-link">module</a></li><li class="sidebar-sub-header"><a href="/nodejs.cn/API/module/#dirname" class="sidebar-link">__dirname</a></li><li class="sidebar-sub-header"><a href="/nodejs.cn/API/module/#filename" class="sidebar-link">__filename</a></li><li class="sidebar-sub-header"><a href="/nodejs.cn/API/module/#require-import-傻傻分不清楚-todo" class="sidebar-link">require import 傻傻分不清楚 todo</a></li></ul></li><li><a href="/nodejs.cn/API/dns/" class="sidebar-link">dns 域名服务器</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="module-模块"><a href="#module-模块" aria-hidden="true" class="header-anchor">#</a> module 模块</h1> <p>先来一个 index.js，因为 module 这个关键词是已经被声明过点，所以下面的代码运行会产生异常</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> module <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'module'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>这里运行 index.js</p> <div class="language-bash extra-class"><pre class="language-bash"><code>node index.js
+index.js:1
+<span class="token punctuation">(</span>function <span class="token punctuation">(</span>exports, require, module, __filename, __dirname<span class="token punctuation">)</span> <span class="token punctuation">{</span> const module <span class="token operator">=</span> require<span class="token punctuation">(</span><span class="token string">'module'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                                                    ^
+
+SyntaxError: Identifier <span class="token string">'module'</span> has already been declared
+    at createScript <span class="token punctuation">(</span>vm.js:80:10<span class="token punctuation">)</span>
+    at Object.runInThisContext <span class="token punctuation">(</span>vm.js:139:10<span class="token punctuation">)</span>
+    at Module._compile <span class="token punctuation">(</span>module.js:616:28<span class="token punctuation">)</span>
+    at Object.Module._extensions<span class="token punctuation">..</span>js <span class="token punctuation">(</span>module.js:663:10<span class="token punctuation">)</span>
+    at Module.load <span class="token punctuation">(</span>module.js:565:32<span class="token punctuation">)</span>
+    at tryModuleLoad <span class="token punctuation">(</span>module.js:505:12<span class="token punctuation">)</span>
+    at Function.Module._load <span class="token punctuation">(</span>module.js:497:3<span class="token punctuation">)</span>
+    at Function.Module.runMain <span class="token punctuation">(</span>module.js:693:10<span class="token punctuation">)</span>
+    at startup <span class="token punctuation">(</span>bootstrap_node.js:191:16<span class="token punctuation">)</span>
+    at bootstrap_node.js:612:3
+</code></pre></div><p>通过上面的异常发现</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>exports<span class="token punctuation">,</span> require<span class="token punctuation">,</span> module<span class="token punctuation">,</span> __filename<span class="token punctuation">,</span> __dirname<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>这里是一个知识点 [模块包装器](#wrapper 模块包装器)，你可以现在就去看看，或者继续阅读（在执行模块代码之前，Node.js 会使用一个如上的函数包装器将其包装）。</p> <p>让我们修正 index.js, 然后再次运行</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> moduleObj <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'module'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code>node index.js
+<span class="token punctuation">{</span> <span class="token punctuation">[</span>Function: Module<span class="token punctuation">]</span>
+  builtinModules: 
+   <span class="token punctuation">[</span> <span class="token string">'async_hooks'</span>,
+     <span class="token string">'assert'</span>,
+     <span class="token string">'buffer'</span>,
+     <span class="token string">'child_process'</span>,
+     <span class="token string">'console'</span>,
+     <span class="token string">'constants'</span>,
+     <span class="token string">'crypto'</span>,
+     <span class="token string">'cluster'</span>,
+     <span class="token string">'dgram'</span>,
+     <span class="token string">'dns'</span>,
+     <span class="token string">'domain'</span>,
+     <span class="token string">'events'</span>,
+     <span class="token string">'fs'</span>,
+     <span class="token string">'http'</span>,
+     <span class="token string">'http2'</span>,
+     <span class="token string">'_http_agent'</span>,
+     <span class="token string">'_http_client'</span>,
+     <span class="token string">'_http_common'</span>,
+     <span class="token string">'_http_incoming'</span>,
+     <span class="token string">'_http_outgoing'</span>,
+     <span class="token string">'_http_server'</span>,
+     <span class="token string">'https'</span>,
+     <span class="token string">'inspector'</span>,
+     <span class="token string">'module'</span>,
+     <span class="token string">'net'</span>,
+     <span class="token string">'os'</span>,
+     <span class="token string">'path'</span>,
+     <span class="token string">'perf_hooks'</span>,
+     <span class="token string">'process'</span>,
+     <span class="token string">'punycode'</span>,
+     <span class="token string">'querystring'</span>,
+     <span class="token string">'readline'</span>,
+     <span class="token string">'repl'</span>,
+     <span class="token string">'stream'</span>,
+     <span class="token string">'_stream_readable'</span>,
+     <span class="token string">'_stream_writable'</span>,
+     <span class="token string">'_stream_duplex'</span>,
+     <span class="token string">'_stream_transform'</span>,
+     <span class="token string">'_stream_passthrough'</span>,
+     <span class="token string">'_stream_wrap'</span>,
+     <span class="token string">'string_decoder'</span>,
+     <span class="token string">'sys'</span>,
+     <span class="token string">'timers'</span>,
+     <span class="token string">'tls'</span>,
+     <span class="token string">'_tls_common'</span>,
+     <span class="token string">'_tls_legacy'</span>,
+     <span class="token string">'_tls_wrap'</span>,
+     <span class="token string">'tty'</span>,
+     <span class="token string">'url'</span>,
+     <span class="token string">'util'</span>,
+     <span class="token string">'v8'</span>,
+     <span class="token string">'vm'</span>,
+     <span class="token string">'zlib'</span>,
+     <span class="token string">'v8/tools/splaytree'</span>,
+     <span class="token string">'v8/tools/codemap'</span>,
+     <span class="token string">'v8/tools/consarray'</span>,
+     <span class="token string">'v8/tools/csvparser'</span>,
+     <span class="token string">'v8/tools/profile'</span>,
+     <span class="token string">'v8/tools/profile_view'</span>,
+     <span class="token string">'v8/tools/logreader'</span>,
+     <span class="token string">'v8/tools/tickprocessor'</span>,
+     <span class="token string">'v8/tools/SourceMap'</span>,
+     <span class="token string">'v8/tools/tickprocessor-driver'</span>,
+     <span class="token string">'node-inspect/lib/_inspect'</span>,
+     <span class="token string">'node-inspect/lib/internal/inspect_client'</span>,
+     <span class="token string">'node-inspect/lib/internal/inspect_repl'</span> <span class="token punctuation">]</span>,
+  _cache: 
+   <span class="token punctuation">{</span> <span class="token string">'/Users/zhuxiaopeng/Desktop/github/nodejs.cn/index.js'</span><span class="token keyword">:</span> 
+      Module <span class="token punctuation">{</span>
+        id: <span class="token string">'.'</span>,
+        exports: <span class="token punctuation">{</span><span class="token punctuation">}</span>,
+        parent: null,
+        filename: <span class="token string">'/Users/zhuxiaopeng/Desktop/github/nodejs.cn/index.js'</span>,
+        loaded: false,
+        children: <span class="token punctuation">[</span><span class="token punctuation">]</span>,
+        paths: <span class="token punctuation">[</span>Array<span class="token punctuation">]</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>,
+  _pathCache: 
+   <span class="token punctuation">{</span> <span class="token string">'/Users/zhuxiaopeng/Desktop/github/nodejs.cn/index.js\u0000'</span><span class="token keyword">:</span> <span class="token string">'/Users/zhuxiaopeng/Desktop/github/nodejs.cn/index.js'</span> <span class="token punctuation">}</span>,
+  _extensions: <span class="token punctuation">{</span> <span class="token string">'.js'</span><span class="token keyword">:</span> <span class="token punctuation">[</span>Function<span class="token punctuation">]</span>, <span class="token string">'.json'</span><span class="token keyword">:</span> <span class="token punctuation">[</span>Function<span class="token punctuation">]</span>, <span class="token string">'.node'</span><span class="token keyword">:</span> <span class="token punctuation">[</span>Function<span class="token punctuation">]</span> <span class="token punctuation">}</span>,
+  globalPaths: 
+   <span class="token punctuation">[</span> <span class="token string">'/Users/zhuxiaopeng/.node_modules'</span>,
+     <span class="token string">'/Users/zhuxiaopeng/.node_libraries'</span>,
+     <span class="token string">'/Users/zhuxiaopeng/.nvm/versions/node/v8.11.3/lib/node'</span> <span class="token punctuation">]</span>,
+  wrapper: 
+   <span class="token punctuation">[</span> <span class="token string">'(function (exports, require, module, __filename, __dirname) { '</span>,
+     <span class="token string">'\n});'</span> <span class="token punctuation">]</span>,
+  wrap: <span class="token punctuation">[</span>Function<span class="token punctuation">]</span>,
+  _debug: <span class="token punctuation">[</span>Function<span class="token punctuation">]</span>,
+  _findPath: <span class="token punctuation">[</span>Function<span class="token punctuation">]</span>,
+  _nodeModulePaths: <span class="token punctuation">[</span>Function<span class="token punctuation">]</span>,
+  _resolveLookupPaths: <span class="token punctuation">[</span>Function<span class="token punctuation">]</span>,
+  _load: <span class="token punctuation">[</span>Function<span class="token punctuation">]</span>,
+  _resolveFilename: <span class="token punctuation">[</span>Function<span class="token punctuation">]</span>,
+  runMain: <span class="token punctuation">[</span>Function<span class="token punctuation">]</span>,
+  _initPaths: <span class="token punctuation">[</span>Function<span class="token punctuation">]</span>,
+  _preloadModules: <span class="token punctuation">[</span>Function<span class="token punctuation">]</span>,
+  Module: <span class="token punctuation">[</span>Circular<span class="token punctuation">]</span> <span class="token punctuation">}</span>
+</code></pre></div><p>在这些输出的结果中，可以看到这些字段</p> <ul><li>builtinModules: nodejs 固有模块</li> <li>_cache: 缓存的模块，在这里可以注意到，刚刚运行的 index.js 已经进入了缓存</li> <li>_pathCache: 缓存的模块路径，同样是刚刚运行的 index.js</li> <li>_extensions: 扩展 <code>{ '.js': [Function], '.json': [Function], '.node': [Function] }</code></li> <li>globalPaths: 模块的全局路径</li> <li>wrapper: 模块包装器</li> <li>_debug</li> <li>_findPath</li> <li>_nodeModulePaths</li> <li>_resolveLookupPaths</li> <li>_load</li> <li>_resolveFilename</li> <li>runMain</li> <li>_initPaths</li> <li>_preloadModules</li> <li>Module</li></ul> <h2 id="wrapper-模块包装器"><a href="#wrapper-模块包装器" aria-hidden="true" class="header-anchor">#</a> wrapper 模块包装器</h2> <p>在执行模块代码之前，Node.js 会使用一个如下的函数包装器将其包装：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>exports<span class="token punctuation">,</span> require<span class="token punctuation">,</span> module<span class="token punctuation">,</span> __filename<span class="token punctuation">,</span> __dirname<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 模块的代码实际上在这里</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>通过这样做，Node.js 实现了以下几点：</p> <p>它保持了顶层的变量（用 <code>var</code>、<code>const</code> 或 <code>let</code> 定义）作用在模块范围内，而不是全局对象。
+它有助于提供一些看似全局的但实际上是模块特定的变量，例如：</p> <ul><li>实现者可以用于从模块中导出值的 <code>module</code> 和 <code>exports</code> 对象。</li> <li>包含模块绝对文件名和目录路径的快捷变量 <code>__filename</code> 和 <code>__dirname</code>。</li></ul> <h2 id="exports"><a href="#exports" aria-hidden="true" class="header-anchor">#</a> exports</h2> <p>这是一个对于 <strong>module.exports</strong> 的更简短的引用形式。什么时候使用 <code>exports</code>、什么时候使用 <code>module.exports</code>？</p> <h3 id="exports-shortcut-快捷方式"><a href="#exports-shortcut-快捷方式" aria-hidden="true" class="header-anchor">#</a> exports shortcut 快捷方式</h3> <p><code>exports</code> 变量是在模块的文件级别作用域内有效的，它在模块被执行前被赋予 <code>module.exports</code> 的值。</p> <p>它有一个快捷方式，以便 <code>module.exports.f = ...</code> 可以被更简洁地写成 <code>exports.f = ...</code>。 注意，就像任何变量，如果一个新的值被赋值给 <code>exports</code>，它就不再绑定到 <code>module.exports</code>：</p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports<span class="token punctuation">.</span>hello <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">// 从对模块的引用中导出</span>
+exports <span class="token operator">=</span> <span class="token punctuation">{</span> hello<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>  <span class="token comment">// 不导出，只在模块内有效</span>
+</code></pre></div><p>当 <code>module.exports</code> 属性被一个新的对象完全替代时，也会重新赋值 <code>exports</code>，例如：</p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">Constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ... 及其他</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>为了解释这个行为，想象对 <code>require()</code> 的假设实现，它跟 <code>require()</code> 的实际实现相当类似：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token comment">/* ... */</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> module <span class="token operator">=</span> <span class="token punctuation">{</span> exports<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">(</span><span class="token punctuation">(</span>module<span class="token punctuation">,</span> exports<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 模块代码在这。在这个例子中，定义了一个函数。</span>
+    <span class="token keyword">function</span> <span class="token function">someFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    exports <span class="token operator">=</span> someFunc<span class="token punctuation">;</span>
+    <span class="token comment">// 此时，exports 不再是一个 module.exports 的快捷方式，</span>
+    <span class="token comment">// 且这个模块依然导出一个空的默认对象。</span>
+    module<span class="token punctuation">.</span>exports <span class="token operator">=</span> someFunc<span class="token punctuation">;</span>
+    <span class="token comment">// 此时，该模块导出 someFunc，而不是默认对象。</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>module<span class="token punctuation">,</span> module<span class="token punctuation">.</span>exports<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> module<span class="token punctuation">.</span>exports<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="require"><a href="#require" aria-hidden="true" class="header-anchor">#</a> require</h2> <p>引入模块</p> <p>module.require(id) 返回已解析的模块的 module.exports
+odule.require 方法提供了一种类似 require() 从原始模块被调用的加载模块的方式。
+注意，为了做到这个，需要获得一个 module 对象的引用。 因为 require() 会返回 module.exports，且 module 只在一个特定的模块代码中有效，所以为了使用它，必须明确地导出。</p> <p>require.cache 被引入的模块将被缓存在这个对象中。从此对象中删除键值对将会导致下一次 require 重新加载被删除的模块。注意不能删除 native addons（原生插件），因为它们的重载将会导致错误。
+require.main Module对象，表示Node.js进程启动时加载的条目脚本。</p> <div class="language-bash extra-class"><pre class="language-bash"><code>Module <span class="token punctuation">{</span>
+  id: <span class="token string">'.'</span>,
+  exports: <span class="token punctuation">{</span><span class="token punctuation">}</span>,
+  parent: null,
+  filename: <span class="token string">'/absolute/path/to/entry.js'</span>,
+  loaded: false,
+  children: <span class="token punctuation">[</span><span class="token punctuation">]</span>,
+  paths:
+  <span class="token punctuation">[</span> <span class="token string">'/absolute/path/to/node_modules'</span>,
+    <span class="token string">'/absolute/path/node_modules'</span>,
+    <span class="token string">'/absolute/node_modules'</span>,
+    <span class="token string">'/node_modules'</span> <span class="token punctuation">]</span> <span class="token punctuation">}</span>
+</code></pre></div><p>require.resolve(request[, options]) 使用内部的 require() 机制查询模块的位置, 此操作只返回解析后的文件名，不会加载该模块。</p> <ul><li>request 需要解析的模块路径。</li> <li>options 解析模块的起点路径。此参数存在时，将使用这些路径而非默认解析路径。    注意此数组中的每一个路径都被用作模块解析算法的起点，意味着 node_modules 层级将从这里开始查询。</li></ul> <p>require.resolve.paths(request) 返回一个数组，其中包含解析 request 过程中被查询的路径。 如果 request 字符串指向核心模块（例如 http 或 fs），则返回 null。</p> <h2 id="module"><a href="#module" aria-hidden="true" class="header-anchor">#</a> module</h2> <p>对当前模块的引用, 查看关于 module object 的章节。 module.exports 用于指定一个模块所导出的内容，即可以通过 require() 访问的内容。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>Module <span class="token punctuation">{</span>
+  id: <span class="token string">'.'</span>, 
+  exports: <span class="token punctuation">{</span><span class="token punctuation">}</span>,
+  parent: null,
+  filename: <span class="token string">'/Users/zhuxiaopeng/Desktop/github/nodejs.cn/index.js'</span>,
+  loaded: false,
+  children: <span class="token punctuation">[</span><span class="token punctuation">]</span>,
+  paths: <span class="token punctuation">[</span>Array<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>module.id 模块的标识符。 通常是完全解析后的文件名
+module.exports 对象是由模块系统创建的
+module.parent 最先引用该模块的模块
+module.filename 模块的完全解析后的文件名
+module.loaded 模块是否已经加载完成，或正在加载中
+module.children 被该模块引用的模块对象
+module.paths 模块的搜索路径。</p> <h2 id="dirname"><a href="#dirname" aria-hidden="true" class="header-anchor">#</a> __dirname</h2> <p>当前模块的目录名，等同于 <code>__filename</code> 的 <code>path.dirname()</code> 的值。</p> <h2 id="filename"><a href="#filename" aria-hidden="true" class="header-anchor">#</a> __filename</h2> <p>当前模块的文件名称---解析后的绝对路径。</p> <h2 id="require-import-傻傻分不清楚-todo"><a href="#require-import-傻傻分不清楚-todo" aria-hidden="true" class="header-anchor">#</a> require import 傻傻分不清楚 todo</h2> <p>node 中可以开心的使用 import 方式吗</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> moudleObj <span class="token keyword">from</span> <span class="token string">'module'</span><span class="token punctuation">;</span>
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code>node -v 
+v8.11.3
+node index.js
+/Users/zhuxiaopeng/Desktop/github/nodejs.cn/index.js:2
+<span class="token function">import</span> module from <span class="token string">'module'</span><span class="token punctuation">;</span>
+^^^^^^
+
+SyntaxError: Unexpected token <span class="token function">import</span>
+    at createScript <span class="token punctuation">(</span>vm.js:80:10<span class="token punctuation">)</span>
+    at Object.runInThisContext <span class="token punctuation">(</span>vm.js:139:10<span class="token punctuation">)</span>
+    at Module._compile <span class="token punctuation">(</span>module.js:616:28<span class="token punctuation">)</span>
+    at Object.Module._extensions<span class="token punctuation">..</span>js <span class="token punctuation">(</span>module.js:663:10<span class="token punctuation">)</span>
+    at Module.load <span class="token punctuation">(</span>module.js:565:32<span class="token punctuation">)</span>
+    at tryModuleLoad <span class="token punctuation">(</span>module.js:505:12<span class="token punctuation">)</span>
+    at Function.Module._load <span class="token punctuation">(</span>module.js:497:3<span class="token punctuation">)</span>
+    at Function.Module.runMain <span class="token punctuation">(</span>module.js:693:10<span class="token punctuation">)</span>
+    at startup <span class="token punctuation">(</span>bootstrap_node.js:191:16<span class="token punctuation">)</span>
+    at bootstrap_node.js:612:3
+
+node -v 
+v10.11.0
+node index.js
+/Users/zhuxiaopeng/Desktop/github/nodejs.cn/index.js:2
+<span class="token function">import</span> module from <span class="token string">'module'</span><span class="token punctuation">;</span>
+^^^^^^
+
+SyntaxError: Unexpected token <span class="token function">import</span>
+    at createScript <span class="token punctuation">(</span>vm.js:80:10<span class="token punctuation">)</span>
+    at Object.runInThisContext <span class="token punctuation">(</span>vm.js:139:10<span class="token punctuation">)</span>
+    at Module._compile <span class="token punctuation">(</span>module.js:616:28<span class="token punctuation">)</span>
+    at Object.Module._extensions<span class="token punctuation">..</span>js <span class="token punctuation">(</span>module.js:663:10<span class="token punctuation">)</span>
+    at Module.load <span class="token punctuation">(</span>module.js:565:32<span class="token punctuation">)</span>
+    at tryModuleLoad <span class="token punctuation">(</span>module.js:505:12<span class="token punctuation">)</span>
+    at Function.Module._load <span class="token punctuation">(</span>module.js:497:3<span class="token punctuation">)</span>
+    at Function.Module.runMain <span class="token punctuation">(</span>module.js:693:10<span class="token punctuation">)</span>
+    at startup <span class="token punctuation">(</span>bootstrap_node.js:191:16<span class="token punctuation">)</span>
+    at bootstrap_node.js:612:3
+</code></pre></div></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/OrangeBorning/nodejs.cn/edit/master/docs/API/module/README.md" target="_blank" rel="noopener noreferrer">编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">2018-9-21 22:57:02</span></div></div> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/nodejs.cn/API/dns/">
+          dns 域名服务器
+        </a>
+        →
+      </span></p></div> <div class="bsa-cpc-wrapper"><div class="bsa-cpc"></div></div></div> <!----></div></div>
+    <script src="/nodejs.cn/assets/js/11.5d7bf7d3.js" defer></script><script src="/nodejs.cn/assets/js/app.5c390938.js" defer></script>
+  </body>
+</html>
