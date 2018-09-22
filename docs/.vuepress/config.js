@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/nodejs.cn/',
+  // base: '/nodejs.cn/',
   locales: {
     '/': {
       lang: 'zh-CN',
